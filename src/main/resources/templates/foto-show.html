@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body th:object="${foto}">
+	<h1>[[ *{titolo} ]]</h1>
+	<img width="200px" th:src="*{url}">
+	<h3>[[ *{descrizione} ]]</h3>
+	<br>
+</body>
+</html>
+
