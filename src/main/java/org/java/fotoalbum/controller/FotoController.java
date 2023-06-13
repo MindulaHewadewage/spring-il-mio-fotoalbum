@@ -3,7 +3,9 @@ package org.java.fotoalbum.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.java.fotoalbum.pojo.Categoria;
 import org.java.fotoalbum.pojo.Foto;
+import org.java.fotoalbum.serv.CategoriaService;
 import org.java.fotoalbum.serv.FotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class FotoController {
 	@Autowired
 	private FotoService fotoService;
+	
+	@Autowired
+	private CategoriaService categoriaService;
 	
 	@GetMapping("/")
 	public String getFotoIndex(Model model) {
@@ -44,8 +49,10 @@ public class FotoController {
 	
 	
 	@GetMapping("/fotos/create")
-	public String createNewFoto(Model model,@ModelAttribute Foto foto,BindingResult bindingResult ) {
-		model.addAttribute("foto", foto);
+	public String createNewFoto(Model model) {
+		List<Categoria>categorie=categoriaService.findAll();
+		model.addAttribute("foto",new Foto());
+		model.addAttribute("categorie",categorie);
 		return "foto-create";
 	}
 	

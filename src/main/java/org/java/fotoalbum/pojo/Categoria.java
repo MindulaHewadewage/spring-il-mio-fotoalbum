@@ -15,7 +15,7 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String nome;
+	public String nome;
 	
 	@ManyToMany(mappedBy = "categorie")
 	public List<Foto> fotos;
@@ -56,5 +56,12 @@ public class Categoria {
 	@Override
 	public String toString() {
 		return "["+getId()+"]" + getNome();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof Categoria)) return false;
+		Categoria objCat=(Categoria)obj;
+		return getId()==objCat.getId();
 	}
 }

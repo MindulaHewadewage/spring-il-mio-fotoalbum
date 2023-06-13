@@ -15,6 +15,9 @@ public class SpringIlMioFotoalbumApplication implements CommandLineRunner{
 	
 	@Autowired
 	private FotoService fotoService;
+	
+	@Autowired
+	private CategoriaService categoriaService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringIlMioFotoalbumApplication.class, args);
@@ -31,12 +34,16 @@ public class SpringIlMioFotoalbumApplication implements CommandLineRunner{
 		Categoria c5=new Categoria("Cibo");
 		
 		categoriaService.save(c1);
+		categoriaService.save(c2);
+		categoriaService.save(c3);
+		categoriaService.save(c4);
+		categoriaService.save(c5);
 		
-		Foto f1= new Foto("Lago di Braies", "Lago molto bello ma tanto turistico","https://static2-viaggi.corriereobjects.it/wp-content/uploads/2017/08/lago-di-braies-come-arrivare-dove-si-trova-alto-adige-estate.jpg?v=1597768260" , true);
-		Foto f2=new Foto("Lago di Carezza","Lago molto particolare","https://d1b7rr0nby25az.cloudfront.net/cache-buster-1678910037/activities/karersee-42171578/image-thumb__20026223__header-fullscreen/karer-see--1443447969.jpg",true );
-		Foto f3=new Foto("Tokyo","Città molto bella","https://www.aviontourism.com/images/1260-1260-fix/1ccb6aee-a04b-45a9-85dd-4bbdd2eb95dc",true );
-		Foto f4=new Foto("Firenze","Citta storica","https://tourismmedia.italia.it/is/image/mitur/20210401173629-firenze-toscana-gettyimages-1145040590?wid=1600&hei=900&fit=constrain,1&fmt=webp",true );
-		Foto f5=new Foto("Monte Everest","Molto alto","https://lowamedia.blob.core.windows.net/expeditions/2019_luisstitzinger_nepal-mounteverest/luis-stitzinger-am-gipfel-des-everest-8848-m_foto_stitzinger_goclimbamountainde.jpg",true );
+		Foto f1= new Foto("Lago di Braies", "Lago molto bello ma tanto turistico","https://static2-viaggi.corriereobjects.it/wp-content/uploads/2017/08/lago-di-braies-come-arrivare-dove-si-trova-alto-adige-estate.jpg?v=1597768260" , true,c4);
+		Foto f2=new Foto("Lago di Carezza","Lago molto particolare","https://d1b7rr0nby25az.cloudfront.net/cache-buster-1678910037/activities/karersee-42171578/image-thumb__20026223__header-fullscreen/karer-see--1443447969.jpg",true ,c4);
+		Foto f3=new Foto("Tokyo","Città molto bella","https://www.aviontourism.com/images/1260-1260-fix/1ccb6aee-a04b-45a9-85dd-4bbdd2eb95dc",true ,c2);
+		Foto f4=new Foto("Firenze","Citta storica","https://tourismmedia.italia.it/is/image/mitur/20210401173629-firenze-toscana-gettyimages-1145040590?wid=1600&hei=900&fit=constrain,1&fmt=webp",true ,c2);
+		Foto f5=new Foto("Monte Everest","Molto alto","https://lowamedia.blob.core.windows.net/expeditions/2019_luisstitzinger_nepal-mounteverest/luis-stitzinger-am-gipfel-des-everest-8848-m_foto_stitzinger_goclimbamountainde.jpg",true ,c3);
 		
 		
 		fotoService.save(f1);

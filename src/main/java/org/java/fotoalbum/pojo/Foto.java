@@ -1,6 +1,7 @@
 package org.java.fotoalbum.pojo;
 
 
+import java.util.Arrays;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -33,6 +34,7 @@ public class Foto {
 		setDescrizione(descrizione);
 		setUrl(url);
 		setVisibile(visibile);
+		setCategorie(categorie);
 	}
 
 	public int getId() {
@@ -81,6 +83,18 @@ public class Foto {
 
 	public void setCategorie(List<Categoria> categorie) {
 		this.categorie = categorie;
+	}
+	
+	public void setCategorie(Categoria[] categorie) {
+		setCategorie(Arrays.asList(categorie));
+	}
+	
+	public void addCategoria(Categoria categoria) {
+		getCategorie().add(categoria);
+	}
+	
+	public void removeCategoria(Categoria categoria) {
+		getCategorie().remove(categoria);
 	}
 	
 	@Override

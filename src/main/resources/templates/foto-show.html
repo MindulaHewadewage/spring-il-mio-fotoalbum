@@ -7,6 +7,16 @@
 <body th:object="${foto}">
 	<h1>[[ *{titolo} ]]</h1>
 	<img width="200px" th:src="*{url}">
+	<br>
+	<h3>Categoria:</h3>
+	<ul>
+  		<li
+  		th:each="categoria : *{categorie}"
+  		th:object="${categoria}"
+  		
+  		>[[*{nome}]]</li>
+	</ul>
+
 	<h3>[[ *{descrizione} ]]</h3>
 	<br>
 </body>

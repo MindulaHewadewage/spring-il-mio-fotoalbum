@@ -23,6 +23,18 @@
 		<input type="checkbox" name="visibile" th:value="*{visibile}">
 		<br>
 		
+		<label>Categorie</label>
+		<div 
+		 th:each="categoria : ${categorie}"
+		 th:objevt="${categoria}"
+		 
+		
+		>
+		<input th:id="${'categoria-' + categoria.id}" type="checkbox" name="categorie" th:value="*{id}">
+		<label th:for="${'categoria-' + categoria.id}"></label>
+		
+		</div>
+		
 		<input type="submit" value="UPDATE"> 
 	
 	</form>
